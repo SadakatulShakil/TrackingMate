@@ -9,20 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TrackingMate">
-        <activity android:name=".RegisterAndLoginActivity">
+        <activity android:name=".View.MerchantDetailsActivity"></activity>
+        <activity android:name=".View.AllMerchantListActivity" />
+        <activity android:name=".View.AddMerchantActivity" />
+        <activity android:name=".View.VisitReportActivity" />
+        <activity android:name=".View.ProfileActivity" />
+        <activity android:name=".View.RegisterAndLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <service
             android:name=".LocationService"
             android:enabled="true"
             android:exported="false" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

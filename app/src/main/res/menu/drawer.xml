@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/add_merchant"
+        android:icon="@drawable/ic_add_merchant"
+        android:title="Add Merchant" />
+
+    <item
+        android:id="@+id/all_merchant"
+        android:icon="@drawable/ic_all_merchant"
+        android:title="All Merchant" />
+
+
+    <item
+        android:id="@+id/visit_report"
+        android:icon="@drawable/ic_visit_report"
+        android:title="Visit Report" />
+
+    <item
+        android:id="@+id/registration_report"
+        android:icon="@drawable/ic_registration_report"
+        android:title="Registration Report" />
+
+    <item
+        android:id="@+id/order_report"
+        android:title="Order Report"
+        android:icon="@drawable/ic_order_report"/>
+
+    <item
+        android:id="@+id/log_out"
+        android:title="Log Out"
+        android:icon="@drawable/ic_log_out"/>
+
+</menu>

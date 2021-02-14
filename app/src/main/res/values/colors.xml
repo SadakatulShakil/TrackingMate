@@ -8,5 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bebsha">#FFD105</color>
+    <color name="bebsha_lite">#E3BA06</color>
     <color name="red">#F44336</color>
+    <color name="ash">#C6C4C4</color>
 </resources>
