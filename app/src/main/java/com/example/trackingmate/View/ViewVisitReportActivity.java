@@ -26,23 +26,22 @@ import android.widget.TextView;
 import com.example.trackingmate.API.ApiInterface;
 import com.example.trackingmate.API.RetrofitClient;
 import com.example.trackingmate.Adapter.MerchantAdapter;
+import com.example.trackingmate.Adapter.VisitReportAdapter;
 import com.example.trackingmate.Model.AllMerchant.AllMerchant;
-import com.example.trackingmate.Model.AllMerchant.Datum;
 import com.example.trackingmate.Model.AuthData;
+import com.example.trackingmate.Model.ViewVisitReport.Datum;
+import com.example.trackingmate.Model.ViewVisitReport.ViewVisitReport;
+import com.example.trackingmate.Model.VisitReport.VisitReport;
 import com.example.trackingmate.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
-public class AllMerchantListActivity extends AppCompatActivity {
-
-    private RecyclerView allMerchantRecyclerView, desireMerchantRevView;
-    private MerchantAdapter merchantAdapter;
-    private ArrayList<Datum> mMerchantArrayList = new ArrayList<>();
-    private ArrayList<Datum> mDesireMerchantArrayList = new ArrayList<>();
+public class ViewVisitReportActivity extends AppCompatActivity {
+    private RecyclerView allVisitRecyclerView, desireVisitRevView;
+    private VisitReportAdapter visitReportAdapter;
+    private ArrayList<Datum> mVisitReportArrayList = new ArrayList<>();
+    private ArrayList<Datum> mDesireVisitReportArrayList = new ArrayList<>();
     private ProgressBar progressBar;
     private String employeeId, retrievedToken, desiredDate;
     private SharedPreferences preferences;
@@ -51,11 +50,11 @@ public class AllMerchantListActivity extends AppCompatActivity {
     private int year, month, day;
     private TextView seeAll;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    public static final String TAG = "merchant";
+    public static final String TAG = "VisitReport";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_merchant_list);
+        setContentView(R.layout.activity_view_visit_report);
         inItView();
         preferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);
         retrievedToken  = preferences.getString("TOKEN",null);
@@ -83,7 +82,7 @@ public class AllMerchantListActivity extends AppCompatActivity {
                 if(response.code() == 200){
                     AuthData authData = response.body();
                     employeeId = String.valueOf(authData.getId());
-                    getAllMerchantList(employeeId);
+                    getAllVisitReportList(employeeId);
                     Log.d(TAG, "onResponse: " +employeeId);
                 }
             }
@@ -93,7 +92,6 @@ public class AllMerchantListActivity extends AppCompatActivity {
                 Log.d(TAG, "onFailure: " +t.getMessage());
             }
         });
-
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -108,7 +106,7 @@ public class AllMerchantListActivity extends AppCompatActivity {
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                     DatePickerDialog dialog = new DatePickerDialog(
-                            AllMerchantListActivity.this,
+                            ViewVisitReportActivity.this,
                             android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                             mDateSetListener,
                             year, month, day);
@@ -142,8 +140,8 @@ public class AllMerchantListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 searchDate.setText("");
-                allMerchantRecyclerView.setVisibility(View.VISIBLE);
-                desireMerchantRevView.setVisibility(View.GONE);
+                allVisitRecyclerView.setVisibility(View.VISIBLE);
+                desireVisitRevView.setVisibility(View.GONE);
             }
         });
 
@@ -154,36 +152,36 @@ public class AllMerchantListActivity extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getRetrofitClient2();
         ApiInterface api = retrofit.create(ApiInterface.class);
 
-        Call<AllMerchant> allMerchantCall = api.getByAllMerchant(employeeId);
+        Call<ViewVisitReport> allVisitReport = api.getByVisitReport(employeeId);
 
-        allMerchantCall.enqueue(new Callback<AllMerchant>() {
+        allVisitReport.enqueue(new Callback<ViewVisitReport>() {
             @Override
-            public void onResponse(Call<AllMerchant> call, Response<AllMerchant> response) {
+            public void onResponse(Call<ViewVisitReport> call, Response<ViewVisitReport> response) {
                 Log.d(TAG, "onResponse: " +response.code());
                 if(response.code() == 200){
-                    mDesireMerchantArrayList.clear();
-                    mMerchantArrayList.clear();
-                    allMerchantRecyclerView.setVisibility(View.GONE);
-                    desireMerchantRevView.setVisibility(View.VISIBLE);
-                    AllMerchant allMerchant = response.body();
+                    mDesireVisitReportArrayList.clear();
+                    mVisitReportArrayList.clear();
+                    allVisitRecyclerView.setVisibility(View.GONE);
+                    desireVisitRevView.setVisibility(View.VISIBLE);
+                    ViewVisitReport viewVisitReport = response.body();
 
-                    Log.d(TAG, "onResponse: " +allMerchant.toString());
+                    Log.d(TAG, "onResponse: " +viewVisitReport.toString());
                     //mMerchantArrayList.clear();
 
-                    mMerchantArrayList.addAll(allMerchant.getData());
-                    Log.d(TAG, "onResponse: " +mMerchantArrayList.size()+"..."+desiredDate);
-                    for(int i = 0; i < mMerchantArrayList.size(); i++){
-                        Log.d(TAG, "onResponseCheck: " +i+"...."+allMerchant.getData().get(i).getCreated());
-                        if(allMerchant.getData().get(i).getCreated().equals(desiredDate)){
+                    mVisitReportArrayList.addAll(viewVisitReport.getData());
+                    Log.d(TAG, "onResponse: " +mVisitReportArrayList.size()+"..."+desiredDate);
+                    for(int i = 0; i < mVisitReportArrayList.size(); i++){
+                        Log.d(TAG, "onResponseCheck: " +i+"...."+viewVisitReport.getData().get(i).getCreated());
+                        if(viewVisitReport.getData().get(i).getCreated().equals(desiredDate)){
                             Log.d(TAG, "onResponsePrint: " +"true");
 
-                            mDesireMerchantArrayList.add(mMerchantArrayList.get(i));
-                            merchantAdapter = new MerchantAdapter(AllMerchantListActivity.this, mDesireMerchantArrayList);
-                            desireMerchantRevView.setLayoutManager(new LinearLayoutManager(AllMerchantListActivity.this));
-                            desireMerchantRevView.setAdapter(merchantAdapter);
-                            merchantAdapter.notifyDataSetChanged();
+                            mDesireVisitReportArrayList.add(mVisitReportArrayList.get(i));
+                            visitReportAdapter = new VisitReportAdapter(ViewVisitReportActivity.this, mDesireVisitReportArrayList);
+                            desireVisitRevView.setLayoutManager(new LinearLayoutManager(ViewVisitReportActivity.this));
+                            desireVisitRevView.setAdapter(visitReportAdapter);
+                            visitReportAdapter.notifyDataSetChanged();
                             progressBar.setVisibility(View.GONE);
-                            Log.d(TAG, "onResponseOutput: "+mDesireMerchantArrayList.size());
+                            Log.d(TAG, "onResponseOutput: "+mDesireVisitReportArrayList.size());
                         }else
                             Log.d(TAG, "onResponsePrint: " +"false");
                     }
@@ -191,53 +189,52 @@ public class AllMerchantListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<AllMerchant> call, Throwable t) {
+            public void onFailure(Call<ViewVisitReport> call, Throwable t) {
+                Log.d(TAG, "onFailure: " +t.getMessage());
+            }
+        });
+    }
+
+    private void getAllVisitReportList(String employeeId) {
+        Log.d(TAG, "getAllMerchantList: " +employeeId);
+        Retrofit retrofit = RetrofitClient.getRetrofitClient2();
+        ApiInterface api = retrofit.create(ApiInterface.class);
+
+        Call<ViewVisitReport> allMerchantCall = api.getByVisitReport(employeeId);
+
+        allMerchantCall.enqueue(new Callback<ViewVisitReport>() {
+            @Override
+            public void onResponse(Call<ViewVisitReport> call, Response<ViewVisitReport> response) {
+                Log.d(TAG, "onResponse: " +response.code());
+                if(response.code() == 200){
+                    ViewVisitReport allVisitReport = response.body();
+
+                    Log.d(TAG, "onResponse: " +allVisitReport.toString());
+                    //mMerchantArrayList.clear();
+
+                    mVisitReportArrayList.addAll(allVisitReport.getData());
+                    Log.d(TAG, "onResponse: " +mVisitReportArrayList.size());
+                    visitReportAdapter = new VisitReportAdapter(ViewVisitReportActivity.this, mVisitReportArrayList);
+                    allVisitRecyclerView.setLayoutManager(new LinearLayoutManager(ViewVisitReportActivity.this));
+                    allVisitRecyclerView.setAdapter(visitReportAdapter);
+                    visitReportAdapter.notifyDataSetChanged();
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ViewVisitReport> call, Throwable t) {
                 Log.d(TAG, "onFailure: " +t.getMessage());
             }
         });
     }
 
     private void inItView() {
-        allMerchantRecyclerView = findViewById(R.id.allMerchantRevView);
-        desireMerchantRevView = findViewById(R.id.desireMerchantRevView);
+        allVisitRecyclerView = findViewById(R.id.allVisitReportRevView);
+        desireVisitRevView = findViewById(R.id.desireVisitReportRevView);
         progressBar = findViewById(R.id.progressBar);
         toolbar = findViewById(R.id.toolbar);
         searchDate = findViewById(R.id.searchList);
         seeAll = findViewById(R.id.seeAll);
-    }
-
-    private void getAllMerchantList(String employeeId) {
-
-        Log.d(TAG, "getAllMerchantList: " +employeeId);
-        Retrofit retrofit = RetrofitClient.getRetrofitClient2();
-        ApiInterface api = retrofit.create(ApiInterface.class);
-
-        Call<AllMerchant> allMerchantCall = api.getByAllMerchant(employeeId);
-
-        allMerchantCall.enqueue(new Callback<AllMerchant>() {
-            @Override
-            public void onResponse(Call<AllMerchant> call, Response<AllMerchant> response) {
-                Log.d(TAG, "onResponse: " +response.code());
-                if(response.code() == 200){
-                    AllMerchant allMerchant = response.body();
-
-                    Log.d(TAG, "onResponse: " +allMerchant.toString());
-                    //mMerchantArrayList.clear();
-
-                    mMerchantArrayList.addAll(allMerchant.getData());
-                    Log.d(TAG, "onResponse: " +mMerchantArrayList.size());
-                    merchantAdapter = new MerchantAdapter(AllMerchantListActivity.this, mMerchantArrayList);
-                    allMerchantRecyclerView.setLayoutManager(new LinearLayoutManager(AllMerchantListActivity.this));
-                    allMerchantRecyclerView.setAdapter(merchantAdapter);
-                    merchantAdapter.notifyDataSetChanged();
-                    progressBar.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<AllMerchant> call, Throwable t) {
-                Log.d(TAG, "onFailure: " +t.getMessage());
-            }
-        });
     }
 }

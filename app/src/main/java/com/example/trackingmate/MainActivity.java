@@ -31,6 +31,7 @@ import com.example.trackingmate.View.AddMerchantActivity;
 import com.example.trackingmate.View.AllMerchantListActivity;
 import com.example.trackingmate.View.ProfileActivity;
 import com.example.trackingmate.View.RegisterAndLoginActivity;
+import com.example.trackingmate.View.ViewVisitReportActivity;
 import com.example.trackingmate.View.VisitReportActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -165,10 +166,10 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(UserUiContainerActivity.this, "About Under Construction be Patient!", Toast.LENGTH_LONG).show();
                         break;
 
-                    case R.id.registration_report:
-                       /* Intent registration_report = new Intent(MainActivity.this, RegistrationReportActivity.class);
-                        startActivity(registration_report);*/
-                        Toast.makeText(MainActivity.this, "This is Construction be Patient!", Toast.LENGTH_LONG).show();
+                    case R.id.view_visit_report:
+                        Intent visitReport = new Intent(MainActivity.this, ViewVisitReportActivity.class);
+                        startActivity(visitReport);
+                        //Toast.makeText(MainActivity.this, "This is Construction be Patient!", Toast.LENGTH_LONG).show();
                         break;
 
                     case R.id.order_report:

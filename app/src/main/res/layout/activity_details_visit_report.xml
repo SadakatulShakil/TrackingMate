@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.DetailsVisitReportActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bebsha"
+        app:titleTextColor="@color/white" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cartItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/auctionNotificationAction"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bangla_regular"
+                android:gravity="center"
+                android:text="Merchant Details"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/demoLay"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@drawable/brand_tool"
+        android:layout_below="@+id/toolbar">
+
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_shop"/>
+
+        <TextView
+            android:id="@+id/shopName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="Shakil Ajam"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/demoLay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="8dp"
+                android:text="Additional Information"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ash"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Id :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/userId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1234"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Market Name :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/marketName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shakil"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Person:"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/contactPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01751330394"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/demoEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Address :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/shopAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="shakil@futureskyltd.com"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner Contact :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/ownerContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jamalpur, Islampur"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business Type :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/businessType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jamalpur fashion"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Products Type :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/productsType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jamalpur fashion"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remarks :"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/remarks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jamalpur fashion"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="District :"
+                 android:layout_margin="8dp" />
+
+             <TextView
+                 android:id="@+id/userDistrict"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Islampur"
+                 android:layout_marginLeft="8dp"
+                 android:textColor="@color/black"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Upazilla :"
+                 android:layout_margin="8dp" />
+
+             <TextView
+                 android:id="@+id/userUpazilla"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="huha ha ha"
+                 android:layout_marginLeft="8dp"
+                 android:textColor="@color/black"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

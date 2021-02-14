@@ -22,12 +22,12 @@
     <item
         android:id="@+id/visit_report"
         android:icon="@drawable/ic_visit_report"
-        android:title="Visit Report" />
+        android:title="Add Visit Report" />
 
     <item
-        android:id="@+id/registration_report"
+        android:id="@+id/view_visit_report"
         android:icon="@drawable/ic_registration_report"
-        android:title="Registration Report" />
+        android:title="View Visit Report" />
 
     <item
         android:id="@+id/order_report"

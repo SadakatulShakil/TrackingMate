@@ -7,6 +7,7 @@ import com.example.trackingmate.Model.Login.Login;
 import com.example.trackingmate.Model.Registration;
 import com.example.trackingmate.Model.StoreLocation.StoreLocation;
 import com.example.trackingmate.Model.Upazila.UpazilatList;
+import com.example.trackingmate.Model.ViewVisitReport.ViewVisitReport;
 import com.example.trackingmate.Model.VisitReport.VisitReport;
 
 import retrofit2.Call;
@@ -105,5 +106,11 @@ public interface ApiInterface {
             @Field("owner_phone") String owner_phone,
             @Field("latitude") String latitude,
             @Field("longitude") String longitude
+    );
+
+    @Headers("accept: application/json, content-type: application/json")
+    @GET("visitreportlist")
+    Call<ViewVisitReport> getByVisitReport(
+            @Query("future_employee_id") String future_employee_id
     );
 }

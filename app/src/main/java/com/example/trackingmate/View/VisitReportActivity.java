@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.trackingmate.API.ApiInterface;
 import com.example.trackingmate.API.RetrofitClient;
+import com.example.trackingmate.MainActivity;
 import com.example.trackingmate.Model.AddMerchant.AddMerchant;
 import com.example.trackingmate.Model.AuthData;
 import com.example.trackingmate.Model.VisitReport.VisitReport;
@@ -238,7 +239,7 @@ public class VisitReportActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 finish();
-                                Intent intent = new Intent(VisitReportActivity.this, AllMerchantListActivity.class);
+                                Intent intent = new Intent(VisitReportActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }
                         });
