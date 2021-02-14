@@ -44,7 +44,7 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.viewHo
             @Override
             public void onClick(View v) {
                 Intent merchantDetail = new Intent(context, MerchantDetailsActivity.class);
-                merchantDetail.putExtra("merchantDetail", merchantDetail);
+                merchantDetail.putExtra("merchantDetail", allMerchantData);
                 context.startActivity(merchantDetail);
             }
         });

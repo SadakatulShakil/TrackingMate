@@ -23,13 +23,25 @@
 
             <RelativeLayout
                 android:id="@+id/auctionNotificationAction"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/seeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:drawablePadding="5dp"
+                    android:layout_marginRight="5dp"
+                    android:drawableRight="@drawable/ic_people"
+                    android:fontFamily="@font/bangla_regular"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
             </RelativeLayout>
 
@@ -51,6 +63,24 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <EditText
+        android:id="@+id/searchList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_round_item"
+        android:clickable="true"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/ic_search"
+        android:editable="false"
+        android:focusable="false"
+        android:hint="Search with dates"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allMerchantRevView"
         android:layout_width="match_parent"
@@ -59,7 +89,20 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/searchList"
+        tools:itemCount="9"
+        tools:listitem="@layout/merchant_list_view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/desireMerchantRevView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchList"
         tools:itemCount="9"
         tools:listitem="@layout/merchant_list_view" />
 

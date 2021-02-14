@@ -29,6 +29,12 @@ public class Datum implements Serializable {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("created")
+    @Expose
+    private String created;
+    @SerializedName("modified")
+    @Expose
+    private String modified;
 
     public String getId() {
         return id;
@@ -86,6 +92,22 @@ public class Datum implements Serializable {
         this.email = email;
     }
 
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getModified() {
+        return modified;
+    }
+
+    public void setModified(String modified) {
+        this.modified = modified;
+    }
+
     @Override
     public String toString() {
         return "Datum{" +
@@ -96,6 +118,8 @@ public class Datum implements Serializable {
                 ", storeName='" + storeName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
+                ", created='" + created + '\'' +
+                ", modified='" + modified + '\'' +
                 '}';
     }
 }

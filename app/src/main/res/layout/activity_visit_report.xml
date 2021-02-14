@@ -99,7 +99,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/shopName" />
 
             <EditText
-                android:id="@+id/ContactPerson"
+                android:id="@+id/contactPerson"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter contact person name"
@@ -130,7 +130,7 @@
                 android:id="@+id/demoContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shop Address :"
+                android:text="Owner Contact :"
                 android:layout_margin="8dp"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/black"
-                android:inputType="number"
+                android:inputType="text"
                 android:imeOptions="actionNext" />
 
             <TextView
@@ -186,7 +186,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/black"
-                android:inputType="number"
+                android:inputType="text"
                 android:imeOptions="actionNext" />
 
             <TextView
@@ -207,12 +207,12 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/black"
-                android:inputType="number"
+                android:inputType="text"
                 android:imeOptions="actionNext" />
 
 
             <TextView
-                android:id="@+id/logInBt"
+                android:id="@+id/addReportBt"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -231,5 +231,13 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

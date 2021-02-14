@@ -337,7 +337,7 @@ public class AddMerchantActivity extends AppCompatActivity {
 
                     Log.d(TAG, "onResponse:  "+ addMerchant.toString());
                     progressBar.setVisibility(View.GONE);
-                    if(!addMerchant.getStatus().equals("false")){
+                    if(addMerchant.getStatus().equals("true")){
                         nameEt.setText("");
                         userEmailEt.setText("");
                         userNameEt.setText("");
@@ -353,7 +353,7 @@ public class AddMerchantActivity extends AppCompatActivity {
                         alertDialog.setMessage("Merchant add Successfully !");
                         alertDialog.setIcon(R.drawable.ic_add_merchant);
 
-                        alertDialog.setPositiveButton("ব্যবসায়ীগণ", new DialogInterface.OnClickListener() {
+                        alertDialog.setPositiveButton("View List", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 finish();
@@ -362,7 +362,7 @@ public class AddMerchantActivity extends AppCompatActivity {
                             }
                         });
 
-                        alertDialog.setNegativeButton("আরেকটা যোগ", new DialogInterface.OnClickListener() {
+                        alertDialog.setNegativeButton("Add Another", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) { {
                                 dialog.dismiss();

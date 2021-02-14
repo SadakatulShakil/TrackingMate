@@ -7,6 +7,7 @@ import com.example.trackingmate.Model.Login.Login;
 import com.example.trackingmate.Model.Registration;
 import com.example.trackingmate.Model.StoreLocation.StoreLocation;
 import com.example.trackingmate.Model.Upazila.UpazilatList;
+import com.example.trackingmate.Model.VisitReport.VisitReport;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -87,5 +88,22 @@ public interface ApiInterface {
     @GET("merchantslist")
     Call<AllMerchant> getByAllMerchant(
             @Query("future_employee_id") String future_employee_id
+    );
+
+    @Headers("accept: application/json, content-type: application/json")
+    @FormUrlEncoded
+    @POST("visitreport")
+    Call<VisitReport> postByAddVisitReport(
+            @Field("future_employee_id") String future_employee_id,
+            @Field("market_name") String market_name,
+            @Field("shop_name") String shop_name,
+            @Field("contact_person") String contact_person,
+            @Field("shop_address") String shop_address,
+            @Field("business_type") String business_type,
+            @Field("products_type") String products_type,
+            @Field("remarks") String remarks,
+            @Field("owner_phone") String owner_phone,
+            @Field("latitude") String latitude,
+            @Field("longitude") String longitude
     );
 }
