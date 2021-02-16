@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.trackingmate">
+    package="com.futureskyltd.trackingmate">
 
     <application
         android:allowBackup="true"
@@ -9,24 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TrackingMate">
-        <activity android:name=".View.DetailsVisitReportActivity"></activity>
-        <activity android:name=".View.ViewVisitReportActivity" />
-        <activity android:name=".View.MerchantDetailsActivity" />
-        <activity android:name=".View.AllMerchantListActivity" />
-        <activity android:name=".View.AddMerchantActivity" />
-        <activity android:name=".View.VisitReportActivity" />
-        <activity android:name=".View.ProfileActivity" />
-        <activity android:name=".View.RegisterAndLoginActivity">
+        <activity android:name="com.futureskyltd.trackingmate.View.DetailsVisitReportActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.futureskyltd.trackingmate.View.ViewVisitReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.futureskyltd.trackingmate.View.MerchantDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.futureskyltd.trackingmate.View.AllMerchantListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.futureskyltd.trackingmate.View.AddMerchantActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.futureskyltd.trackingmate.View.VisitReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.futureskyltd.trackingmate.View.ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.futureskyltd.trackingmate.View.RegisterAndLoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.futureskyltd.trackingmate.MainActivity"
+            android:screenOrientation="portrait"/>
 
         <service
-            android:name=".LocationService"
+            android:name="com.futureskyltd.trackingmate.LocationService"
             android:enabled="true"
             android:exported="false" />
     </application>

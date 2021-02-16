@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BebshaTracking</string>
+    <string name="app_name">Bebsha Field Force</string>
 
     <string name="drawer_closed">drawer_closed</string>
     <string name="drawer_open">drawer_open</string>

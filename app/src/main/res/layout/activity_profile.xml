@@ -142,7 +142,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/demoEmail" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/demoAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,6 +160,6 @@
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/demoAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/demoAddress" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
